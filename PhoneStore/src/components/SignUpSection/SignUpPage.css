@@ -1,0 +1,13 @@
+
+
+.signUpSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.signUpSection form{
+    display: flex;
+    flex-direction: column;
+}

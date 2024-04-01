@@ -1,0 +1,9 @@
+
+.catalogPage-div{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10%;
+    margin-right: 10%;
+    gap: 10px;
+    padding-top: 10px;
+}

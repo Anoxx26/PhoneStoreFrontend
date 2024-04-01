@@ -13,12 +13,19 @@ export default function ProductPreview({phone}){
       };
       
 
+      console.log(phone)
     return (
+        
         <div className="product-div">
-            <img src="https://xiaomi-sib.ru/media/cache/thumb_540_600/media/product_variant_image/587//d0da948e3a4c3fa451ed8a9516a3f3cc3f114d14.jpg"/>
-            <p>Цена: {phone.price}</p>
-            <p>{phone.brand} {phone.model}</p>
-            <button onClick={addToCart}>Добавить</button>
+             {phone.imagePath ? <img src={phone.imagePath} /> : <img src="https://placeholder.com/150" />}
+             
+             <div style={{display: "flex", flexDirection: "column", justifyContent: "space-around", width: "100%"}}>
+                <p>{phone.brand} {phone.model}</p>
+                <p style={{color: "black", fontWeight: "800"}}>{phone.price} ₽</p>
+                <button onClick={addToCart}>+</button>
+             </div>
+           
+            
         </div>
     )
 }

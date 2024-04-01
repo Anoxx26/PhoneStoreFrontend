@@ -13,6 +13,7 @@ export default function Header(){
             <nav className='nav'>
                 <div className='header-link-div'>
                     <Link className='link-header' to={'/'}>Каталог</Link>
+                    
                     <Link style={{marginLeft: "10px"}} to={'cart'} className='link-header'>Корзина</Link>
                     {
                         user === null ? null : (

@@ -2,33 +2,38 @@ import { useState } from "react"
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+import { useEffect } from "react";
 
-export default function ProductAddPage(){
+export default function ProductUpdatePage(){
+
 
     const [cookies] = useCookies(['token']);
 
     const navigate = useNavigate();
 
     const [product, setProduct] = useState({
-        price: '',
+        model: '',
+        price: 0,
         description: '',
         brand: '',
-        model: '',
         releaseDate: '',
-        displaySize: '',
+        displaySize: 0,
         operatingSystem: '',
         processor: '',
-        ramMemory: '',
-        memory: '',
-        cameraPx: '',
-        batteryCapacity: '',
+        ramMemory: 0,
+        memory: 0,
+        cameraPx: 0,
+        batteryCapacity: 0,
         color: '',
         imagePath: ''
     });
 
+    const { id } = useParams();
+
     
 
-    const addProduct = async () => {
+    const updateProduct = async () => {
         const config = {
             headers: {
                 Authorization: `Bearer ${cookies.token}`
@@ -38,7 +43,7 @@ export default function ProductAddPage(){
         console.log(cookies.token)
         try {
             console.log(product)
-            const response = await axios.post('https://localhost:7214/Product/AddProduct', product, config)
+            const response = await axios.post('https://localhost:7214/Product/UpdateProduct', product, config)
             console.log(response.data); 
             navigate("/")
 
@@ -47,6 +52,23 @@ export default function ProductAddPage(){
         }
     };
 
+    useEffect(() => {
+        const fetchProduct = async () => {
+            try {
+                const response = await axios.get(`https://localhost:7214/Product/GetProductById?id=${id}`, {
+                    headers: {
+                        Authorization: `Bearer ${cookies.token}`
+                    }
+                });
+                setProduct(response.data);
+            } catch (error) {
+                console.error('Произошла ошибка при получении продукта:', error);
+            }
+        };
+
+        fetchProduct();
+    }, [id, cookies.token]);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setProduct({ ...product, [name]: value });
@@ -54,12 +76,13 @@ export default function ProductAddPage(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addProduct()
+        // addProduct()
     };
 
     return(
         <div style={{display: "flex", flexDirection: "column", alignItems : "center", justifyContent: "center", height: "100%"}}>
-            <h2>Добавить продукт</h2>
+            <h2>Обновить продукт</h2>
+            <p style={{fontSize: "44px", color: "red"}}>НЕ РАБОТАЕТ</p>
             <form onSubmit={handleSubmit} style={{display: "flex", flexDirection: "column", alignItems : "start", justifyContent: "center", height: "100%"}}>
                 <label>
                     Модель:

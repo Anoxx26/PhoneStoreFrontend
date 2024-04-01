@@ -4,6 +4,8 @@ import { useCookies } from 'react-cookie';
 import { useEffect } from "react";
 import { Link } from 'react-router-dom'
 
+
+
 export default function ProductManagerPage(){
 
     
@@ -58,6 +60,7 @@ export default function ProductManagerPage(){
                     <th>Модель</th>
                     <th>Бренд</th>
                     <th>Цена</th>
+                    <th>Изменить</th>
                     <th>Удалить</th>
                 </tr>
             </thead>
@@ -67,6 +70,9 @@ export default function ProductManagerPage(){
                         <td>{product.model}</td>
                         <td>{product.brand}</td>
                         <td>{product.price}</td>
+                        <td>
+                            <Link to={`update/${product.phoneID}`}>Изменить</Link>
+                        </td>
                         <td>
                             <button onClick={() => handleDeleteProduct(product.phoneID)}>X</button>
                         </td>

@@ -12,6 +12,7 @@ import ProductManagerPage from './components/ProductManagerPage/ProductManagerPa
 import UserManagerPage from './components/UserManagerPage/UserManagerPage'
 import OrderManagerPage from './components/OrderMangerPage/OrderManagerPage';
 import ProductAddPage from './components/ProductManagerPage/ProductAddPage';
+import ProductUpdatePage from './components/ProductManagerPage/ProductUpdatePage';
 
 
 
@@ -32,6 +33,7 @@ function App() {
               <Route path='usermanager' element={<UserManagerPage/>}/>
               <Route path='ordermanager' element={<OrderManagerPage/>}/>
               <Route path='productmanager/add' element={<ProductAddPage/>}/>
+              <Route path="productmanager/update/:id" element={<ProductUpdatePage/>}/>
             </Routes>
           </main>
         </BrowserRouter>

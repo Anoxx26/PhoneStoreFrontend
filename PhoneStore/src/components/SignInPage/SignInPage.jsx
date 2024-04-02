@@ -23,7 +23,7 @@ export default function SignInPage(){
           const response = await axios.post('https://localhost:7214/User/SignIn', formData);
           console.log(response.data);
           if (response.data != "False"){
-            setCookie('token', response.data, { path: '/' });
+            setCookie('token', response.data, { path: '/', maxAge: 86400 });
             navigate("/")
             
           }

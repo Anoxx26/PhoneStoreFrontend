@@ -13,11 +13,12 @@ export default function ProductUpdatePage(){
     const navigate = useNavigate();
 
     const [product, setProduct] = useState({
-        model: '',
+        phoneID: 0,
         price: 0,
         description: '',
         brand: '',
-        releaseDate: '',
+        model: '',
+        releaseDate: 0,
         displaySize: 0,
         operatingSystem: '',
         processor: '',
@@ -31,7 +32,7 @@ export default function ProductUpdatePage(){
 
     const { id } = useParams();
 
-    
+    console.log(id)
 
     const updateProduct = async () => {
         const config = {
@@ -60,7 +61,26 @@ export default function ProductUpdatePage(){
                         Authorization: `Bearer ${cookies.token}`
                     }
                 });
-                setProduct(response.data);
+                const { data } = response;
+        const adaptedProduct = {
+            phoneID: data.phoneID,
+            price: data.price,
+            description: data.description,
+            brand: data.brand,
+            model: data.model,
+            releaseDate: data.releaseDate,
+            displaySize: data.displaySize,
+            operatingSystem: data.operatingSystem,
+            processor: data.processor,
+            ramMemory: data.ramMemory,
+            memory: data.memory,
+            cameraPx: data.cameraPx,
+            batteryCapacity: data.batteryCapacity,
+            color: data.color,
+            imagePath: data.imagePath
+        };
+
+            setProduct(adaptedProduct);
             } catch (error) {
                 console.error('Произошла ошибка при получении продукта:', error);
             }
@@ -76,13 +96,12 @@ export default function ProductUpdatePage(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // addProduct()
+        updateProduct()
     };
 
     return(
         <div style={{display: "flex", flexDirection: "column", alignItems : "center", justifyContent: "center", height: "100%"}}>
             <h2>Обновить продукт</h2>
-            <p style={{fontSize: "44px", color: "red"}}>НЕ РАБОТАЕТ</p>
             <form onSubmit={handleSubmit} style={{display: "flex", flexDirection: "column", alignItems : "start", justifyContent: "center", height: "100%"}}>
                 <label>
                     Модель:
@@ -98,7 +117,7 @@ export default function ProductUpdatePage(){
                 </label>
                 <label>
                     Бренд:
-                    <input type="text" name="brand" value={product.rband} onChange={handleChange} />
+                    <input type="text" name="brand" value={product.brand} onChange={handleChange} />
                 </label>
                 <label>
                     Дата выпуска:

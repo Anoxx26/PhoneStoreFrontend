@@ -6,6 +6,8 @@ import './CatalogPage.css'
 
 export default function CatalogPage(){
     const [phones, setPhones] = useState([])
+    const [searchQuery, setSearchQuery] = useState("")
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -20,14 +22,30 @@ export default function CatalogPage(){
         fetchData();
     }, []);
 
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+    }
+    
+    const filteredPhones = phones.filter(phone =>
+        phone.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        phone.model.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+       
+
     return (
-        <div className="catalogPage-div">
+        <div>
+            <input className="searchInput" type="text" placeholder="Введите название" value={searchQuery} onChange={handleSearchChange} />
+
+            <div className="catalogPage-div">
+            
             {
-                phones.map(phone => (
+                filteredPhones.map(phone => (
                     <ProductPreview key={phone.phoneId} phone={phone}/>
                 ))
             }
             
         </div>
+        </div>
+        
     )
 }

@@ -1,0 +1,30 @@
+
+.product-page-div{
+    display: flex;
+    flex-direction: row;
+    margin-left: 100px;
+    width: 80%;
+}
+.product-page-div-mini{
+    display: flex;
+    flex-direction: column;
+}
+
+.product-page-div img{
+    height: 300px;
+    width: 300px;
+}
+
+.product-page-div ul{
+    list-style-type: none;
+}
+
+.product-page-div ul li{
+    font-weight: 600;
+}
+
+.product-page-div ul li p{
+    margin-left: 10px;
+    font-weight: 400;
+}
+

@@ -7,3 +7,10 @@
     gap: 10px;
     padding-top: 10px;
 }
+
+.searchInput{
+    height: 30px;
+    margin-top: 5px;
+    width: 50%;
+    margin-left: 10px;
+}

@@ -13,6 +13,7 @@ import UserManagerPage from './components/UserManagerPage/UserManagerPage'
 import OrderManagerPage from './components/OrderMangerPage/OrderManagerPage';
 import ProductAddPage from './components/ProductManagerPage/ProductAddPage';
 import ProductUpdatePage from './components/ProductManagerPage/ProductUpdatePage';
+import ProductPage from './components/ProductPage/ProductPage';
 
 
 
@@ -25,6 +26,7 @@ function App() {
           <main>
             <Routes>
               <Route path="/" element={<CatalogPage />}/>
+              <Route path="/catalog/:id" element={<ProductPage/>}/>
               <Route path="login" element={<SignInPage />} />
               <Route path='signup' element={<SignUpPage/>}/>
               <Route path='cart' element={<CartPage />} />

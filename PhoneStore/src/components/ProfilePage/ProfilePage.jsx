@@ -21,7 +21,11 @@ export default function ProfilePage(){
 
     return (
         
-        <div style={{display: "flex", alignItems : "center", justifyContent: "center", height: "100%"}}>
+        <div style={{display: "flex", flexDirection: "column", alignItems : "center", justifyContent: "center", height: "100%"}}>
+            <label htmlFor="userName">Логин</label>
+            <input id="userName" name="userName" readOnly value={user.username} type="text"/>
+            <label htmlFor="email">Почта</label>
+            <input id="email" readOnly value={user.email} name="email" type="text"/>
             <button onClick={handleLogout}>Выйти</button>
         </div>
     )

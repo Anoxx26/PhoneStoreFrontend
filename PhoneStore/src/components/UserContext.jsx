@@ -27,7 +27,7 @@ export const UserProvider = ({ children }) => {
                     email: decodedToken.email,
                     role: decodedToken.role,
                     id: decodedToken.userId
-                    // Добавьте другие поля из токена по необходимости
+                    
                 };
                 updateUser(user);
             } catch (error) {

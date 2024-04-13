@@ -86,30 +86,29 @@ export default function CartPage(){
     return (
         <div className='cartpage-div'>
             <h1>Корзина</h1>
-
-            <table>
-                <tr>
-                    <th>Имя</th>
-                    <th>Количество</th>
-                    <th>Стоимость</th>
-                    <th>Действия</th>
-                </tr>
-                {cartState.items.map(item => (
-                    <tr key={item.id}>
-                        <td>{item.brand} {item.model}</td>
-                        <td>{item.quantity}</td>
-                        <td>{item.quantity * item.price}</td>
-                        <td>
-                            <button onClick={() => addToCart(item)}>+</button>
-                            <button onClick={() => removeToCart(item)}>-</button>
-                            
-                        </td>
-                    </tr>
-                ))}
-            </table>
             <h3>Полная стоимость - {totalPrice}</h3>
+            <div className='productsDiv'>
+                {cartState.items.map(item => (
+                <div key={item.id} className='productDiv'>
+                    <div className='productImgDiv'>
+                        <img src={item.imagePath} alt={item.model}/>
+                    </div>
+                    <div className='prductInfoDiv'>
+                        <p>{item.brand} {item.model}</p>
+                        <p>Кол-во: <b>{item.quantity}</b></p>
+                        <p>Стоимость: <b>{item.quantity * item.price}</b></p>
+                        <div className='productButtonDiv'>
+                            <button onClick={() => addToCart(item)}>+</button>
+                            <button onClick={() => removeToCart(item)}>–</button>
+                        </div>
+                    </div>
+                </div>
+            ))}
+            </div>
+            
+            
 
-            {user && user.id ? <button onClick={makeOrder}>Сделать заказ</button> : null}
+            {user && user.id ? <button onClick={makeOrder}>Сделать заказ</button> : <p>Для покупки нужно авторизоваться!</p>}
             
             
         </div>

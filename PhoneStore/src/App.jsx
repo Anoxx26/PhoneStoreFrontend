@@ -14,6 +14,7 @@ import OrderManagerPage from './components/OrderMangerPage/OrderManagerPage';
 import ProductAddPage from './components/ProductManagerPage/ProductAddPage';
 import ProductUpdatePage from './components/ProductManagerPage/ProductUpdatePage';
 import ProductPage from './components/ProductPage/ProductPage';
+import OrderDetailPage from './components/OrderDetailPage/OrderDetailPage';
 
 
 
@@ -36,6 +37,7 @@ function App() {
               <Route path='ordermanager' element={<OrderManagerPage/>}/>
               <Route path='productmanager/add' element={<ProductAddPage/>}/>
               <Route path="productmanager/update/:id" element={<ProductUpdatePage/>}/>
+              <Route path='profile/orderDetails/:id' element={<OrderDetailPage/>}/>
             </Routes>
           </main>
         </BrowserRouter>

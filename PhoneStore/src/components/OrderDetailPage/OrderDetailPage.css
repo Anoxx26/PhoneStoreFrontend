@@ -1,0 +1,23 @@
+
+.orderDetailPage{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.orderDetailDiv{
+    display: flex;
+    flex-direction: row;
+    height: 200px;
+    width: 600px;
+    border: 2px solid black;
+    border-radius: 25px;
+    background-color: #fff;
+    padding: 10px;
+    
+
+}

@@ -1,0 +1,35 @@
+
+
+.profileDiv{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 90vh;
+}
+
+.profileInfo{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center; 
+    height: 100%;
+    width: 50%;
+}
+
+.profileOrder{
+    width: 50%;
+    height: 100%;
+}
+
+.pOrderDiv{
+    border: 2px solid black;
+    border-radius: 10px;
+    gap: 15px;
+    width: 50%;
+}
+
+.profileOrderDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

@@ -54,6 +54,7 @@ export default function ProductManagerPage(){
 
     return (
         <div style={{display: "flex", flexDirection: "column", alignItems : "center", justifyContent: "center", height: "100%"}}>
+            <h2>Продукты</h2>
             <table>
             <thead>
                 <tr>

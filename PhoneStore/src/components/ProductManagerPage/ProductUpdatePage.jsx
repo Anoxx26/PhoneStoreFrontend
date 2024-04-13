@@ -159,7 +159,7 @@ export default function ProductUpdatePage(){
                         Ссылка на картинку:
                         <input type="text" name="imagePath" value={product.imagePath} onChange={handleChange} />
                 </label>
-                <button type="submit">Добавить</button>
+                <button type="submit">Изменить</button>
             </form>
         </div>
     )

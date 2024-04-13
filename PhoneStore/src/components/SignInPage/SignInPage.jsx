@@ -21,11 +21,11 @@ export default function SignInPage(){
         e.preventDefault();
         try {
           const response = await axios.post('https://localhost:7214/User/SignIn', formData);
-          console.log(response.data);
+        
           if (response.data != "False"){
             setCookie('token', response.data, { path: '/', maxAge: 86400 });
+            alert("Вы успешно авторизировались");
             navigate("/")
-            
           }
           else{
             console.log("Не вышло брат")
@@ -33,7 +33,9 @@ export default function SignInPage(){
           
         } catch (error) {
           console.error(error);
-          console.log("Не вышло")
+          if (error.response && error.response.data) {
+              alert(error.response.data['error']);
+            }
         }
       }
 
